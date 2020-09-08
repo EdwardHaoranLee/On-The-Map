@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "LoginViewController.login(_:):LoginViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "error">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static UdacityClient.taskForPOSTRequest&lt;A, B&gt;(url:responseType:body:completion:):UdacityClient.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in static UdacityClient.taskForPOSTRequest&lt;A, B&gt;(url:responseType:body:completion:):UdacityClient.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "print(String(decoding: data, as: UTF8.self))">
+            </PersistentString>
+            <PersistentString
+               value = "print(error)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
