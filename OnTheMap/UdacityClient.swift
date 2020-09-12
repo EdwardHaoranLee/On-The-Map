@@ -60,17 +60,17 @@ class UdacityClient: NSObject {
     }
     
     class func login(username: String, password: String, completion: @escaping (Bool, Error?) -> Void){
-        let body = LoginRequest(username: username, password: password)
+        let body = WrapperLoginRequest(udacity: LoginRequest(username: username, password: password))
         self.taskForPOSTRequest(url: Endpoints.login.url, responseType: LoginResponse.self, body: body) {
             (response, error) in
             if let response = response {
                 if (response.account.registered) {
-                    print(true)
                     completion(true, nil)
                 } else {
-                    print(false)
                     completion(false, error)
                 }
+            } else {
+                completion(false, error)
             }
         }
     }

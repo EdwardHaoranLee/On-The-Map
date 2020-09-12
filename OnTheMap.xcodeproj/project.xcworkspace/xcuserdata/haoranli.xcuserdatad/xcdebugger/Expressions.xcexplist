@@ -3,6 +3,20 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "static ParseClient.downloadMostRecent100Locations(completion:):ParseClient.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Endpoints.getLocationsSorted(&quot;updatedAt&quot;).url.absoluteString">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ParseClient.Endpoints.url.getter:ParseClient.swift">
+      </ContextState>
+      <ContextState
+         contextName = "static UdacityClient.taskForPOSTRequest&lt;A, B&gt;(url:responseType:body:completion:):UdacityClient.swift">
+      </ContextState>
+      <ContextState
          contextName = "LoginViewController.login(_:):LoginViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -11,7 +25,12 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "static UdacityClient.taskForPOSTRequest&lt;A, B&gt;(url:responseType:body:completion:):UdacityClient.swift">
+         contextName = "static ParseClient.taskForGETRequest&lt;A&gt;(url:responseType:completion:):ParseClient.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "url.absoluteString">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "closure #1 in static UdacityClient.taskForPOSTRequest&lt;A, B&gt;(url:responseType:body:completion:):UdacityClient.swift">

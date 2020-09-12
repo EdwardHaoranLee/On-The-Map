@@ -16,6 +16,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var singupButton: UIButton!
     @IBOutlet weak var loadingImage: UIImageView!
     
+    var userLocations: [UserLocation]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         emailTextField.text = ""
@@ -23,18 +25,44 @@ class LoginViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
 
     @IBAction func login(_ sender: Any) {
         self.setLoggingIn(true)
         UdacityClient.login(username: self.emailTextField.text ?? "", password: self.passwordTextField.text ?? "", completion: self.handleLoginResponse(success:error:))
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let tabBarVC = segue.destination as! TabBarViewController
+        tabBarVC.modalPresentationStyle = .fullScreen
+        
+        let userMapNVC = tabBarVC.viewControllers![0] as! UINavigationController
+        let userMapVC = userMapNVC.topViewController as! UserMapViewController
+        
+        let userListNVC = tabBarVC.viewControllers![1] as! UINavigationController
+        let userListVC = userListNVC.topViewController as! UserListViewController
+        
+        userMapVC.userLocations = self.userLocations
+        userListVC.userLocations = self.userLocations
+    }
+    
     func handleLoginResponse(success: Bool, error: Error?) {
+        
         if success {
-            print(true)
+            ParseClient.downloadMostRecent100Locations(completion: self.handleDownloadUserLocations(locations:error:))
         } else {
-            print(false)
+            setLoggingIn(false)
+            self.showLoginFailure(message: "Username or password is incorrect.")
+        }
+    }
+    
+    func handleDownloadUserLocations(locations: [UserLocation]?, error: Error?){
+        if let locations = locations {
+            self.userLocations = locations
+            self.setLoggingIn(false)
+            self.performSegue(withIdentifier: "loginSegue", sender: nil)
+        } else {
+            setLoggingIn(false)
+            self.showDownloadFailure(message: "Logined successfully but the user locations cannot be downloaded. Please check your network.")
         }
     }
     
@@ -53,6 +81,17 @@ class LoginViewController: UIViewController {
         self.emailTextField.isEnabled = !isLoggingIn
         self.passwordTextField.isEnabled = !isLoggingIn
     }
+    
+    func showLoginFailure(message: String){
+        let alertVC = UIAlertController(title: "Login Failed", message: message, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        show(alertVC, sender: nil)
+    }
+    
+    func showDownloadFailure(message: String){
+        let alertVC = UIAlertController(title: "Download Failed", message: message, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        show(alertVC, sender: nil)    }
     /*
     // MARK: - Navigation
 

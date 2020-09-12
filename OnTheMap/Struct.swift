@@ -18,6 +18,15 @@ struct LoginRequest: Codable {
         case password
     }
 }
+
+struct WrapperLoginRequest: Codable {
+    
+    let udacity: LoginRequest
+    
+    enum CodingKeys: String, CodingKey{
+        case udacity
+    }
+}
     /******************/
 
 struct LoginResponseAccount: Codable {
@@ -52,4 +61,37 @@ struct LoginResponse: Codable {
 }
     /******************/
 
+struct UserLocation: Codable {
+    
+    let createdAt: String
+    let firstName: String
+    let lastName: String
+    let latitude: Float
+    let longitude: Float
+    let mapString: String
+    let mediaURL: String
+    let objectID: String
+    let uniqueKey: String
+    let updatedAt: String
+    
+    enum CodingKeys: String, CodingKey {
+        case createdAt
+        case firstName
+        case lastName
+        case latitude
+        case longitude
+        case mapString
+        case mediaURL
+        case objectID
+        case uniqueKey
+        case updatedAt
+    }
+}
 
+struct WrapperUserLocation: Codable {
+    let results: [UserLocation]
+    
+    enum CodingKeys: String, CodingKey {
+        case results
+    }
+}
