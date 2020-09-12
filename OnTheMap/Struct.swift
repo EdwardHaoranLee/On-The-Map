@@ -70,7 +70,7 @@ struct UserLocation: Codable {
     let longitude: Float
     let mapString: String
     let mediaURL: String
-    let objectID: String
+    let objectId: String
     let uniqueKey: String
     let updatedAt: String
     
@@ -82,7 +82,7 @@ struct UserLocation: Codable {
         case longitude
         case mapString
         case mediaURL
-        case objectID
+        case objectId
         case uniqueKey
         case updatedAt
     }

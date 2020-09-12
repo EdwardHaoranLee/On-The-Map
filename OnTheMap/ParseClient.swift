@@ -46,7 +46,6 @@ class ParseClient: NSObject {
                 return
             }
             let decoder = JSONDecoder()
-            
             do {
                 let responseObject = try decoder.decode(ResponseType.self, from: data)
                 DispatchQueue.main.async {
