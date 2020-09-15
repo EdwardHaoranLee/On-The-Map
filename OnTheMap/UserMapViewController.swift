@@ -39,7 +39,10 @@ class UserMapViewController: UIViewController, MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        if let temp = view.annotation?.subtitle, let stringURL = temp {
+        if let temp = view.annotation?.subtitle, var stringURL = temp {
+            if (!stringURL.starts(with: "https://")){
+                stringURL = "https://" + stringURL
+            }
             if let url = URL(string: stringURL){
                 UIApplication.shared.open(url) {
                     success in
@@ -73,7 +76,7 @@ class UserMapViewController: UIViewController, MKMapViewDelegate {
     func showInvalidURLWarning(message: String){
         let alertVC = UIAlertController(title: message, message: "is an invalid URL.", preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        show(alertVC, sender: nil)
+        present(alertVC, animated: true, completion: nil)
     }
     
     
