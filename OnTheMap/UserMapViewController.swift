@@ -44,11 +44,11 @@ class UserMapViewController: UIViewController, MKMapViewDelegate {
                 UIApplication.shared.open(url) {
                     success in
                     if !success {
-                        self.showInvalidURLWarning(message: stringURL)
+                        self.showInvalidURLWarning(message: stringURL) // showing alert as new page
                     }
                 }
             } else {
-                self.showInvalidURLWarning(message: stringURL)
+                self.showInvalidURLWarning(message: stringURL) // showing alert as new page
             }
         }
         
