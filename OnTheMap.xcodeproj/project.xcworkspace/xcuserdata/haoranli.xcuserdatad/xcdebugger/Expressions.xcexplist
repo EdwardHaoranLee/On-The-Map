@@ -25,6 +25,20 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "LoginViewController.prepare(for:sender:):LoginViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "userListVC">
+            </PersistentString>
+            <PersistentString
+               value = "tabBarVC.viewControllers">
+            </PersistentString>
+            <PersistentString
+               value = "userListNVC.viewControllers">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "static ParseClient.downloadMostRecent100Locations(completion:):ParseClient.swift">
          <PersistentStrings>
             <PersistentString

@@ -15,6 +15,8 @@ class UserListViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         self.tableView.reloadData()
 
         // Do any additional setup after loading the view.
@@ -39,6 +41,9 @@ class UserListViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(80)
+    }
 
     /*
     // MARK: - Navigation
