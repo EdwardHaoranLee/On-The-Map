@@ -63,6 +63,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atl-dK-ug3">
                                         <rect key="frame" x="179" y="0.0" width="71" height="30"/>
                                         <state key="normal" title="Sign Up"/>
+                                        <connections>
+                                            <action selector="signup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="54x-IQ-LbG"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -105,7 +108,6 @@
                         <outlet property="loadingImage" destination="dd7-ha-nDw" id="Nv8-71-Oc1"/>
                         <outlet property="loginButton" destination="uEa-B7-o1K" id="KC7-OL-zGb"/>
                         <outlet property="passwordTextField" destination="wbg-p7-PxW" id="1aY-4x-DGi"/>
-                        <outlet property="singupButton" destination="atl-dK-ug3" id="dwp-ob-DjZ"/>
                         <segue destination="DPt-TE-wsa" kind="show" identifier="loginSegue" id="Hnr-Oi-Oby"/>
                     </connections>
                 </viewController>
@@ -212,6 +214,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="lF8-ZX-rDo" id="yFy-Yk-swg"/>
+                        <segue destination="f43-2v-e9v" kind="show" id="kyH-Sp-J71"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j9v-6L-7WY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -254,12 +257,12 @@
             </objects>
             <point key="canvasLocation" x="1739" y="534"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Location View Controller-->
         <scene sceneID="5Gj-TI-P0Q">
             <objects>
-                <viewController id="f43-2v-e9v" sceneMemberID="viewController">
+                <viewController id="f43-2v-e9v" customClass="AddLocationViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sUD-UZ-QY0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EPw-ql-02Q">
@@ -272,7 +275,7 @@
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ph9-us-hTi">
-                                <rect key="frame" x="50" y="413" width="314" height="50"/>
+                                <rect key="frame" x="50" y="386" width="314" height="50"/>
                                 <color key="backgroundColor" red="0.31173855070000001" green="0.69010531900000005" blue="0.87285435199999994" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Tdc-Ic-P0w"/>
@@ -282,7 +285,7 @@
                                 </state>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3EA-yd-6Rv">
-                                <rect key="frame" x="50" y="353" width="314" height="50"/>
+                                <rect key="frame" x="50" y="326" width="314" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="wtr-HO-S30"/>
                                 </constraints>
@@ -290,7 +293,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XEq-8j-Jyw">
-                                <rect key="frame" x="50" y="293" width="314" height="50"/>
+                                <rect key="frame" x="50" y="266" width="314" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Zwd-9q-ynp"/>
                                 </constraints>
@@ -298,7 +301,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_world" translatesAutoresizingMaskIntoConstraints="NO" id="hCw-LO-2Wj">
-                                <rect key="frame" x="157" y="133" width="100" height="100"/>
+                                <rect key="frame" x="157" y="106" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="AsC-AC-Rjr"/>
                                     <constraint firstAttribute="height" constant="100" id="JLf-gi-Rz9"/>
@@ -322,10 +325,26 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S7D-6A-xSb"/>
                     </view>
+                    <navigationItem key="navigationItem" id="rT4-iW-bUh"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hyq-o0-xnx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3354" y="165"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="EPi-ky-4ed">
+            <objects>
+                <viewController id="ZUx-9v-S4r" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Afb-ON-NIH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="vEs-F4-U1z"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rgs-2A-c4z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4161" y="165"/>
         </scene>
         <!--On the Map-->
         <scene sceneID="hQj-LF-Squ">
@@ -357,6 +376,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="8W2-hl-IRS" id="Rgl-Os-Nrz"/>
+                        <segue destination="f43-2v-e9v" kind="show" id="Z93-ZM-yzg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sKE-Zy-jF9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -364,6 +384,9 @@
             <point key="canvasLocation" x="2551" y="-157"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="kyH-Sp-J71"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="icon_addpin" width="24" height="24"/>
         <image name="icon_listview-deselected" width="75" height="50"/>

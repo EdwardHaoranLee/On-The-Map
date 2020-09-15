@@ -39,6 +39,18 @@ class UserMapViewController: UIViewController, MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if let temp = view.annotation?.subtitle, let stringURL = temp {
+            if let url = URL(string: stringURL){
+                UIApplication.shared.open(url) {
+                    success in
+                    if !success {
+                        self.showInvalidURLWarning(message: stringURL)
+                    }
+                }
+            } else {
+                self.showInvalidURLWarning(message: stringURL)
+            }
+        }
         
     }
     
@@ -56,6 +68,12 @@ class UserMapViewController: UIViewController, MKMapViewDelegate {
             pin.subtitle = locationInfo.mediaURL
         }
         return pin
+    }
+    
+    func showInvalidURLWarning(message: String){
+        let alertVC = UIAlertController(title: message, message: "is an invalid URL.", preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        show(alertVC, sender: nil)
     }
     
     

@@ -21,6 +21,7 @@
 		2F59F6E0250C50A9009BC50F /* UserList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59F6DF250C50A9009BC50F /* UserList.swift */; };
 		2F59F6E2250C72EC009BC50F /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59F6E1250C72EC009BC50F /* ParseClient.swift */; };
 		2F59F6E4250D40F2009BC50F /* UserMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59F6E3250D40F2009BC50F /* UserMapViewController.swift */; };
+		2FC9FF6625106D6E00F7906F /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC9FF6525106D6E00F7906F /* AddLocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		2F59F6DF250C50A9009BC50F /* UserList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserList.swift; sourceTree = "<group>"; };
 		2F59F6E1250C72EC009BC50F /* ParseClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
 		2F59F6E3250D40F2009BC50F /* UserMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMapViewController.swift; sourceTree = "<group>"; };
+		2FC9FF6525106D6E00F7906F /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				2F59F6D4250C4CA7009BC50F /* TabBarViewController.swift */,
 				2F59F6DD250C4FCF009BC50F /* UserListViewController.swift */,
 				2F59F6E3250D40F2009BC50F /* UserMapViewController.swift */,
+				2FC9FF6525106D6E00F7906F /* AddLocationViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				2F59F6C525081649009BC50F /* LoginViewController.swift in Sources */,
 				2F59F6DC250C4F23009BC50F /* UserListTableViewCell.swift in Sources */,
 				2F59F6E2250C72EC009BC50F /* ParseClient.swift in Sources */,
+				2FC9FF6625106D6E00F7906F /* AddLocationViewController.swift in Sources */,
 				2F59F6AD25073420009BC50F /* AppDelegate.swift in Sources */,
 				2F59F6E4250D40F2009BC50F /* UserMapViewController.swift in Sources */,
 				2F59F6CF25083D53009BC50F /* Struct.swift in Sources */,

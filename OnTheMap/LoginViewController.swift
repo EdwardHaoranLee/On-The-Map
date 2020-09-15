@@ -13,7 +13,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var singupButton: UIButton!
     @IBOutlet weak var loadingImage: UIImageView!
     
     var userLocations: [UserLocation]!
@@ -29,6 +28,11 @@ class LoginViewController: UIViewController {
     @IBAction func login(_ sender: Any) {
         self.setLoggingIn(true)
         UdacityClient.login(username: self.emailTextField.text ?? "", password: self.passwordTextField.text ?? "", completion: self.handleLoginResponse(success:error:))
+    }
+
+    @IBAction func signup(_ sender: Any) {
+        guard let url = URL(string: "https://auth.udacity.com/sign-up") else { return }
+        UIApplication.shared.open(url)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -91,7 +95,8 @@ class LoginViewController: UIViewController {
     func showDownloadFailure(message: String){
         let alertVC = UIAlertController(title: "Download Failed", message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        show(alertVC, sender: nil)    }
+        show(alertVC, sender: nil)
+    }
     /*
     // MARK: - Navigation
 
