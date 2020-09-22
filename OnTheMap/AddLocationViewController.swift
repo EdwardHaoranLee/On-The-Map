@@ -10,13 +10,35 @@ import UIKit
 
 class AddLocationViewController: UIViewController {
 
+    @IBOutlet weak var locationTextField: UITextField!
+    @IBOutlet weak var urlTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func cancel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func findLocation(_ sender: Any) {
+        if let location = self.locationTextField.text {
+            if let urlString = self.urlTextField.text {
+                
+            } else {
+                showEmptyTextWarning(message: "Empty URL")
+            }
+        } else {
+            showEmptyTextWarning(message: "Empty Location")
+        }
+    }
+    
+    func showEmptyTextWarning(message: String){
+        let alertVC = UIAlertController(title: message, message: "You cannot leave the text field empty.", preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertVC, animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 

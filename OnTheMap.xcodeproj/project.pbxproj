@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F4E4463251A75E80070CC8D /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E4462251A75E80070CC8D /* UserViewController.swift */; };
+		2F4E4467251A783D0070CC8D /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E4466251A783D0070CC8D /* TabBarViewController.swift */; };
 		2F59F6AD25073420009BC50F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59F6AC25073420009BC50F /* AppDelegate.swift */; };
 		2F59F6AF25073420009BC50F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59F6AE25073420009BC50F /* SceneDelegate.swift */; };
 		2F59F6B425073420009BC50F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F59F6B225073420009BC50F /* Main.storyboard */; };
@@ -15,7 +17,6 @@
 		2F59F6C525081649009BC50F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59F6C425081649009BC50F /* LoginViewController.swift */; };
 		2F59F6CB2508321C009BC50F /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59F6CA2508321C009BC50F /* UdacityClient.swift */; };
 		2F59F6CF25083D53009BC50F /* Struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59F6CE25083D53009BC50F /* Struct.swift */; };
-		2F59F6D5250C4CA7009BC50F /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59F6D4250C4CA7009BC50F /* TabBarViewController.swift */; };
 		2F59F6DC250C4F23009BC50F /* UserListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59F6DB250C4F23009BC50F /* UserListTableViewCell.swift */; };
 		2F59F6DE250C4FCF009BC50F /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59F6DD250C4FCF009BC50F /* UserListViewController.swift */; };
 		2F59F6E0250C50A9009BC50F /* UserList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59F6DF250C50A9009BC50F /* UserList.swift */; };
@@ -25,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F4E4462251A75E80070CC8D /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		2F4E4466251A783D0070CC8D /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		2F59F6A925073420009BC50F /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F59F6AC25073420009BC50F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F59F6AE25073420009BC50F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,7 +38,6 @@
 		2F59F6C425081649009BC50F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2F59F6CA2508321C009BC50F /* UdacityClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
 		2F59F6CE25083D53009BC50F /* Struct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Struct.swift; sourceTree = "<group>"; };
-		2F59F6D4250C4CA7009BC50F /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		2F59F6DB250C4F23009BC50F /* UserListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewCell.swift; sourceTree = "<group>"; };
 		2F59F6DD250C4FCF009BC50F /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		2F59F6DF250C50A9009BC50F /* UserList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserList.swift; sourceTree = "<group>"; };
@@ -55,6 +57,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F4E4465251A77670070CC8D /* UserViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2F4E4462251A75E80070CC8D /* UserViewController.swift */,
+				2F59F6E3250D40F2009BC50F /* UserMapViewController.swift */,
+				2F59F6DD250C4FCF009BC50F /* UserListViewController.swift */,
+			);
+			name = UserViewControllers;
+			sourceTree = "<group>";
+		};
 		2F59F6A025073420009BC50F = {
 			isa = PBXGroup;
 			children = (
@@ -84,14 +96,13 @@
 		2F59F6C12508136A009BC50F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2F4E4465251A77670070CC8D /* UserViewControllers */,
 				2F59F6D8250C4EBA009BC50F /* Entity */,
 				2F59F6AE25073420009BC50F /* SceneDelegate.swift */,
 				2F59F6AC25073420009BC50F /* AppDelegate.swift */,
 				2F59F6C425081649009BC50F /* LoginViewController.swift */,
-				2F59F6D4250C4CA7009BC50F /* TabBarViewController.swift */,
-				2F59F6DD250C4FCF009BC50F /* UserListViewController.swift */,
-				2F59F6E3250D40F2009BC50F /* UserMapViewController.swift */,
 				2FC9FF6525106D6E00F7906F /* AddLocationViewController.swift */,
+				2F4E4466251A783D0070CC8D /* TabBarViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -205,8 +216,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F59F6D5250C4CA7009BC50F /* TabBarViewController.swift in Sources */,
 				2F59F6E0250C50A9009BC50F /* UserList.swift in Sources */,
+				2F4E4463251A75E80070CC8D /* UserViewController.swift in Sources */,
 				2F59F6DE250C4FCF009BC50F /* UserListViewController.swift in Sources */,
 				2F59F6CB2508321C009BC50F /* UdacityClient.swift in Sources */,
 				2F59F6C525081649009BC50F /* LoginViewController.swift in Sources */,
@@ -215,6 +226,7 @@
 				2FC9FF6625106D6E00F7906F /* AddLocationViewController.swift in Sources */,
 				2F59F6AD25073420009BC50F /* AppDelegate.swift in Sources */,
 				2F59F6E4250D40F2009BC50F /* UserMapViewController.swift in Sources */,
+				2F4E4467251A783D0070CC8D /* TabBarViewController.swift in Sources */,
 				2F59F6CF25083D53009BC50F /* Struct.swift in Sources */,
 				2F59F6AF25073420009BC50F /* SceneDelegate.swift in Sources */,
 			);

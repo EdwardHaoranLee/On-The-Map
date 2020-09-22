@@ -8,10 +8,9 @@
 
 import UIKit
 
-class UserListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class UserListViewController: UserViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-    var userLocations: [UserLocation]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,13 +63,14 @@ class UserListViewController: UIViewController, UITableViewDelegate, UITableView
         
     }
     
-    func showInvalidURLWarning(message: String){
-        let alertVC = UIAlertController(title: message, message: "is an invalid URL.", preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alertVC, animated: true, completion: nil)
+    @IBAction override func logout(_ sender: Any) {
+        super.logout(sender)
     }
     
-
+    @IBAction override func addLocation(_ sender: Any) {
+        super.addLocation(sender)
+    }
+    
     /*
     // MARK: - Navigation
 

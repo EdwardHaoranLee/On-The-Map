@@ -63,6 +63,8 @@ class LoginViewController: UIViewController {
         if let locations = locations {
             self.userLocations = locations
             self.setLoggingIn(false)
+            self.emailTextField.text = ""
+            self.passwordTextField.text = ""
             self.performSegue(withIdentifier: "loginSegue", sender: nil)
         } else {
             setLoggingIn(false)
