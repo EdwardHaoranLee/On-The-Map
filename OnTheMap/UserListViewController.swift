@@ -44,6 +44,32 @@ class UserListViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(80)
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let location = self.userLocations[indexPath.row]
+        var stringURL = location.mediaURL
+        if (!stringURL.starts(with: "https://")){
+            stringURL = "https://" + stringURL
+        }
+        if let url = URL(string: stringURL){
+            UIApplication.shared.open(url) {
+                success in
+                if !success {
+                    self.showInvalidURLWarning(message: stringURL) // showing alert as new page
+                }
+            }
+        } else {
+            self.showInvalidURLWarning(message: stringURL) // showing alert as new page
+        }
+        
+    }
+    
+    func showInvalidURLWarning(message: String){
+        let alertVC = UIAlertController(title: message, message: "is an invalid URL.", preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertVC, animated: true, completion: nil)
+    }
+    
 
     /*
     // MARK: - Navigation
