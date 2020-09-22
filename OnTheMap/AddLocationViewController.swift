@@ -12,6 +12,8 @@ class AddLocationViewController: UIViewController {
 
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var urlTextField: UITextField!
+    var location: CGPoint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,16 +24,22 @@ class AddLocationViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let findLocationVC = segue.destination as! FindLocationViewController
+        findLocationVC.locationString = self.locationTextField.text!
+        findLocationVC.addLocationVC = self
+    }
+    
     @IBAction func findLocation(_ sender: Any) {
-        if let location = self.locationTextField.text {
-            if let urlString = self.urlTextField.text {
-                
-            } else {
-                showEmptyTextWarning(message: "Empty URL")
-            }
-        } else {
+        guard let locationString = self.locationTextField.text else {
             showEmptyTextWarning(message: "Empty Location")
+            return
         }
+        guard let urlString = self.urlTextField.text else {
+            showEmptyTextWarning(message: "Empty URL")
+            return
+        }
+        performSegue(withIdentifier: "findLocationSegue", sender: nil)
     }
     
     func showEmptyTextWarning(message: String){

@@ -295,7 +295,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Tdc-Ic-P0w"/>
                                 </constraints>
-                                <state key="normal" title="Find Location">
+                                <state key="normal" title="FIND LOCATION">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -308,7 +308,7 @@
                                     <constraint firstAttribute="height" constant="50" id="wtr-HO-S30"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="URL"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XEq-8j-Jyw">
                                 <rect key="frame" x="50" y="266" width="314" height="50"/>
@@ -316,7 +316,7 @@
                                     <constraint firstAttribute="height" constant="50" id="Zwd-9q-ynp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_world" translatesAutoresizingMaskIntoConstraints="NO" id="hCw-LO-2Wj">
                                 <rect key="frame" x="157" y="106" width="100" height="100"/>
@@ -347,22 +347,51 @@
                     <connections>
                         <outlet property="locationTextField" destination="XEq-8j-Jyw" id="0Gc-6f-Dow"/>
                         <outlet property="urlTextField" destination="3EA-yd-6Rv" id="N2b-Pl-Jfe"/>
+                        <segue destination="ZUx-9v-S4r" kind="show" identifier="findLocationSegue" id="x8v-fL-n2I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hyq-o0-xnx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3354" y="165"/>
         </scene>
-        <!--View Controller-->
+        <!--Find Location View Controller-->
         <scene sceneID="EPi-ky-4ed">
             <objects>
-                <viewController id="ZUx-9v-S4r" sceneMemberID="viewController">
+                <viewController id="ZUx-9v-S4r" customClass="FindLocationViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Afb-ON-NIH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gkr-y3-Bxz">
+                                <rect key="frame" x="0.0" y="56" width="414" height="703"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k1e-3M-HrG">
+                                <rect key="frame" x="50" y="689" width="314" height="50"/>
+                                <color key="backgroundColor" red="0.0078431372550000003" green="0.70196078429999997" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="U1k-Te-ADj"/>
+                                </constraints>
+                                <state key="normal" title="FINISH">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vEs-F4-U1z"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gkr-y3-Bxz" firstAttribute="leading" secondItem="vEs-F4-U1z" secondAttribute="leading" id="6AZ-OL-Cqq"/>
+                            <constraint firstItem="gkr-y3-Bxz" firstAttribute="top" secondItem="vEs-F4-U1z" secondAttribute="top" id="6Hb-Q8-OgO"/>
+                            <constraint firstItem="vEs-F4-U1z" firstAttribute="trailing" secondItem="k1e-3M-HrG" secondAttribute="trailing" constant="50" id="IMh-0l-C1n"/>
+                            <constraint firstItem="vEs-F4-U1z" firstAttribute="bottom" secondItem="gkr-y3-Bxz" secondAttribute="bottom" id="c41-vb-XXb"/>
+                            <constraint firstItem="vEs-F4-U1z" firstAttribute="bottom" secondItem="k1e-3M-HrG" secondAttribute="bottom" constant="20" id="gnT-l3-IrG"/>
+                            <constraint firstItem="vEs-F4-U1z" firstAttribute="trailing" secondItem="gkr-y3-Bxz" secondAttribute="trailing" id="yIb-OH-jMK"/>
+                            <constraint firstItem="k1e-3M-HrG" firstAttribute="leading" secondItem="vEs-F4-U1z" secondAttribute="leading" constant="50" id="z7S-t4-vgf"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Nch-Hl-Pop"/>
+                    <connections>
+                        <outlet property="mapView" destination="gkr-y3-Bxz" id="ldc-p3-exZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rgs-2A-c4z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

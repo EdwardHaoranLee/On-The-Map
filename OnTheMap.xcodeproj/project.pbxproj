@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F1A8D30251A8231003D180D /* FindLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1A8D2F251A8231003D180D /* FindLocationViewController.swift */; };
 		2F4E4463251A75E80070CC8D /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E4462251A75E80070CC8D /* UserViewController.swift */; };
 		2F4E4467251A783D0070CC8D /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E4466251A783D0070CC8D /* TabBarViewController.swift */; };
 		2F59F6AD25073420009BC50F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59F6AC25073420009BC50F /* AppDelegate.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F1A8D2F251A8231003D180D /* FindLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindLocationViewController.swift; sourceTree = "<group>"; };
 		2F4E4462251A75E80070CC8D /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		2F4E4466251A783D0070CC8D /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		2F59F6A925073420009BC50F /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +59,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F1A8D32251A8308003D180D /* LocationViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2FC9FF6525106D6E00F7906F /* AddLocationViewController.swift */,
+				2F1A8D2F251A8231003D180D /* FindLocationViewController.swift */,
+			);
+			name = LocationViewControllers;
+			sourceTree = "<group>";
+		};
 		2F4E4465251A77670070CC8D /* UserViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,12 +107,12 @@
 		2F59F6C12508136A009BC50F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2F1A8D32251A8308003D180D /* LocationViewControllers */,
 				2F4E4465251A77670070CC8D /* UserViewControllers */,
 				2F59F6D8250C4EBA009BC50F /* Entity */,
 				2F59F6AE25073420009BC50F /* SceneDelegate.swift */,
 				2F59F6AC25073420009BC50F /* AppDelegate.swift */,
 				2F59F6C425081649009BC50F /* LoginViewController.swift */,
-				2FC9FF6525106D6E00F7906F /* AddLocationViewController.swift */,
 				2F4E4466251A783D0070CC8D /* TabBarViewController.swift */,
 			);
 			name = Controller;
@@ -222,6 +233,7 @@
 				2F59F6CB2508321C009BC50F /* UdacityClient.swift in Sources */,
 				2F59F6C525081649009BC50F /* LoginViewController.swift in Sources */,
 				2F59F6DC250C4F23009BC50F /* UserListTableViewCell.swift in Sources */,
+				2F1A8D30251A8231003D180D /* FindLocationViewController.swift in Sources */,
 				2F59F6E2250C72EC009BC50F /* ParseClient.swift in Sources */,
 				2FC9FF6625106D6E00F7906F /* AddLocationViewController.swift in Sources */,
 				2F59F6AD25073420009BC50F /* AppDelegate.swift in Sources */,
