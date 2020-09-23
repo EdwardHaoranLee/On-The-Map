@@ -10,6 +10,8 @@ import UIKit
 
 class AddLocationViewController: UIViewController {
 
+    @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var urlTextField: UITextField!
     var location: CGPoint!
@@ -39,12 +41,16 @@ class AddLocationViewController: UIViewController {
     }
     
     @IBAction func findLocation(_ sender: Any) {
-        guard let _ = self.locationTextField.text else {
+        guard self.locationTextField.text != "" else {
             showEmptyTextWarning(message: "Empty Location")
             return
         }
-        guard let _ = self.urlTextField.text else {
+        guard self.urlTextField.text != "" else {
             showEmptyTextWarning(message: "Empty URL")
+            return
+        }
+        guard self.firstNameTextField.text != "", self.lastNameTextField.text != "" else {
+            showEmptyTextWarning(message: "Empty First and/or Last Name")
             return
         }
         performSegue(withIdentifier: "findLocationSegue", sender: nil)
@@ -57,8 +63,28 @@ class AddLocationViewController: UIViewController {
     }
     
     func uploadLocation(){
-        print("Uploaded")
+        let requestLocation = UserLocationPOST(uniqueKey: "", firstName: self.firstNameTextField.text!, lastName: self.lastNameTextField.text!, mapString: self.locationTextField.text!, mediaURL: urlTextField.text!, latitude: Double(self.location.x), longitude: Double(self.location.y))
+        ParseClient.postLocation(location: requestLocation, completion: self.handlePOSTLocationResponse(result:error:))
     }
+    
+    func handlePOSTLocationResponse(result: Bool, error: Error?) {
+        if result {
+            self.urlTextField.text = ""
+            self.firstNameTextField.text = ""
+            self.lastNameTextField.text = ""
+            self.locationTextField.text = ""
+            self.location = nil
+            let alertVC = UIAlertController(title: "Congratulation!", message: "Your location pin has been uploaded successfully.", preferredStyle: .alert)
+            alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alertVC, animated: true, completion: nil)
+        } else {
+            let alertVC = UIAlertController(title: "Something Wrong", message: "Your location pin was not uploaded properly.", preferredStyle: .alert)
+            alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alertVC, animated: true, completion: nil)
+        }
+    }
+    
+
     /*
     // MARK: - Navigation
 

@@ -33,4 +33,17 @@ class UserViewController: UIViewController{
     func addLocation(_ sender: Any){
         performSegue(withIdentifier: "addLocation", sender: nil)
     }
+    
+    func refresh(_ sender: Any) {
+        ParseClient.downloadMostRecent100Locations(completion: {
+            locations, error in
+            if let locations = locations {
+                self.userLocations = locations
+            } else {
+                let alertVC = UIAlertController(title: "Something Wrong", message: "User list cannot be refreshed.", preferredStyle: .alert)
+                alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alertVC, animated: true, completion: nil)
+            }
+        })
+    }
 }

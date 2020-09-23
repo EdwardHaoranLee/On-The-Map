@@ -27,7 +27,7 @@ class FindLocationViewController: UIViewController{
         search.start { (response, error) in
             guard let response = response else {
                 let alertVC = UIAlertController(title: "Location not found.", message: "Please input another location.", preferredStyle: .alert)
-                alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in self.dismiss(animated: true, completion: nil)}))
+                alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in self.navigationController?.popViewController(animated: true)}))
                 self.present(alertVC, animated: true, completion: nil)
                 return
             }

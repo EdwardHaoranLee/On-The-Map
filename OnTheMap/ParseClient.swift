@@ -28,6 +28,7 @@ class ParseClient: NSObject {
             case .getLocationsUniqueKey(let key):
                 return Endpoints.base + "?uniqueKey=\(key)"
             }
+            
         }
         
         var url: URL {
@@ -59,11 +60,38 @@ class ParseClient: NSObject {
         }
         task.resume()
         return task
-        
+    }
+    
+    class func taskForPOSTRequest<RequestType: Encodable, ResponseType: Decodable> (url: URL, responseType: ResponseType.Type, body: RequestType, completion: @escaping (ResponseType?, Error?) -> Void) {
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = try! JSONEncoder().encode(body)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        let task = URLSession.shared.dataTask(with: request) {
+            (data, response, error) in
+            guard let data = data else {
+                DispatchQueue.main.async {
+                    completion(nil, error)
+                }
+                return
+            }
+            let decoder = JSONDecoder()
+            do {
+                let responseObject = try decoder.decode(ResponseType.self, from: data)
+                DispatchQueue.main.async {
+                    completion(responseObject, nil)
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion(nil, error)
+                }
+            }
+        }
+        task.resume()
     }
     
     class func downloadMostRecent100Locations(completion: @escaping ([UserLocation]?, Error?) -> Void) {
-        self.taskForGETRequest(url: Endpoints.getLocationsSorted("updatedAt").url, responseType: WrapperUserLocation.self) {
+        let _ = self.taskForGETRequest(url: Endpoints.getLocationsSorted("updatedAt").url, responseType: WrapperUserLocation.self) {
             (response, error) in
             if let response = response {
                 completion(Array(response.results[0...99]), nil)
@@ -73,5 +101,17 @@ class ParseClient: NSObject {
             
         }
     }
+    
+    class func postLocation(location: UserLocationPOST, completion: @escaping (Bool, Error?) -> Void){
+        let _ = self.taskForPOSTRequest(url: URL(string:Endpoints.base)!, responseType: UserLocationPOSTResponse.self, body: location) {
+            response, error in
+            if let _ = response {
+                completion(true, nil)
+            } else {
+                completion(false, nil)
+            }
+        }
+    }
+    
         
 }

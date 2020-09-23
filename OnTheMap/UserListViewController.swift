@@ -34,7 +34,7 @@ class UserListViewController: UserViewController, UITableViewDelegate, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "locationCell") as! UserListTableViewCell
         let userLocation = self.userLocations[indexPath.row]
         
-        cell.UpperLabel?.text = userLocation.firstName + userLocation.lastName
+        cell.UpperLabel?.text = userLocation.firstName + " " + userLocation.lastName
         cell.LowerLabel?.text = userLocation.mediaURL
         
         return cell
@@ -71,6 +71,10 @@ class UserListViewController: UserViewController, UITableViewDelegate, UITableVi
         super.addLocation(sender)
     }
     
+    @IBAction override func refresh(_ sender: Any) {
+        super.refresh(sender)
+        self.tableView.reloadData()
+    }
     /*
     // MARK: - Navigation
 

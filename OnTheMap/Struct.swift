@@ -95,3 +95,36 @@ struct WrapperUserLocation: Codable {
         case results
     }
 }
+/******************/
+
+struct UserLocationPOST: Codable {
+    let uniqueKey: String
+    let firstName: String
+    let lastName: String
+    let mapString: String
+    let mediaURL: String
+    let latitude: Double
+    let longitude: Double
+    
+    enum CodingKeys: String, CodingKey {
+        case uniqueKey
+        case firstName
+        case lastName
+        case mapString
+        case mediaURL
+        case latitude
+        case longitude
+    }
+}
+
+/******************/
+
+struct UserLocationPOSTResponse: Codable {
+    let createdAt: String
+    let objectId: String
+    
+    enum CodingKeys: String, CodingKey {
+        case createdAt
+        case objectId
+    }
+}

@@ -12,7 +12,7 @@ import MapKit
 class UserMapViewController: UserViewController, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mapView.addAnnotations(self.userLocations.map{self.generatePin(locationInfo: $0)})
@@ -62,7 +62,7 @@ class UserMapViewController: UserViewController, MKMapViewDelegate {
         if (locationInfo.firstName == "" && locationInfo.lastName == ""){
             pin.title = "<No name given>"
         } else {
-            pin.title = (locationInfo.firstName + locationInfo.lastName)
+            pin.title = (locationInfo.firstName + " " + locationInfo.lastName)
         }
         if (locationInfo.mediaURL == ""){
             pin.subtitle = "<No URL given>"
@@ -81,6 +81,11 @@ class UserMapViewController: UserViewController, MKMapViewDelegate {
         super.addLocation(sender)
     }
     
+    @IBAction override func refresh(_ sender: Any) {
+        super.refresh(sender)
+        self.mapView.removeAnnotations(mapView.annotations)
+        self.mapView.addAnnotations(self.userLocations.map{self.generatePin(locationInfo: $0)})
+    }
     
 
     /*

@@ -220,12 +220,16 @@
                                     <action selector="addLocation:" destination="6YR-9A-BeG" id="VVw-Af-AyF"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="icon_refresh" id="uh2-uU-Avu"/>
+                            <barButtonItem image="icon_refresh" id="uh2-uU-Avu">
+                                <connections>
+                                    <action selector="refresh:" destination="6YR-9A-BeG" id="lH5-DQ-53f"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="lF8-ZX-rDo" id="yFy-Yk-swg"/>
-                        <segue destination="f43-2v-e9v" kind="show" id="kyH-Sp-J71"/>
+                        <segue destination="f43-2v-e9v" kind="show" identifier="addLocation" id="kyH-Sp-J71"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j9v-6L-7WY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -290,7 +294,7 @@
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ph9-us-hTi">
-                                <rect key="frame" x="50" y="386" width="314" height="50"/>
+                                <rect key="frame" x="50" y="426" width="314" height="50"/>
                                 <color key="backgroundColor" red="0.31173855070000001" green="0.69010531900000005" blue="0.87285435199999994" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Tdc-Ic-P0w"/>
@@ -303,15 +307,15 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3EA-yd-6Rv">
-                                <rect key="frame" x="50" y="326" width="314" height="50"/>
+                                <rect key="frame" x="50" y="366" width="314" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="wtr-HO-S30"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="URL"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL" textContentType="url"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XEq-8j-Jyw">
-                                <rect key="frame" x="50" y="266" width="314" height="50"/>
+                                <rect key="frame" x="50" y="306" width="314" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Zwd-9q-ynp"/>
                                 </constraints>
@@ -325,26 +329,50 @@
                                     <constraint firstAttribute="height" constant="100" id="JLf-gi-Rz9"/>
                                 </constraints>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Amw-Sh-BaU">
+                                <rect key="frame" x="50" y="246" width="314" height="50"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kfY-1o-hKh">
+                                        <rect key="frame" x="0.0" y="0.0" width="152" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eYH-Y6-ksp">
+                                        <rect key="frame" x="162" y="0.0" width="152" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="zgg-2H-UqI"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="S7D-6A-xSb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="S7D-6A-xSb" firstAttribute="trailing" secondItem="XEq-8j-Jyw" secondAttribute="trailing" constant="50" id="70z-89-nAR"/>
+                            <constraint firstItem="S7D-6A-xSb" firstAttribute="trailing" secondItem="Amw-Sh-BaU" secondAttribute="trailing" constant="50" id="7T3-9K-kNH"/>
+                            <constraint firstItem="XEq-8j-Jyw" firstAttribute="top" secondItem="Amw-Sh-BaU" secondAttribute="bottom" constant="10" id="7yK-WH-smR"/>
                             <constraint firstItem="3EA-yd-6Rv" firstAttribute="top" secondItem="XEq-8j-Jyw" secondAttribute="bottom" constant="10" id="F4p-4P-OVn"/>
+                            <constraint firstItem="Amw-Sh-BaU" firstAttribute="centerX" secondItem="sUD-UZ-QY0" secondAttribute="centerX" id="S9n-kV-TAZ"/>
                             <constraint firstItem="S7D-6A-xSb" firstAttribute="trailing" secondItem="3EA-yd-6Rv" secondAttribute="trailing" constant="50" id="SEL-2Q-YYb"/>
                             <constraint firstItem="hCw-LO-2Wj" firstAttribute="centerX" secondItem="sUD-UZ-QY0" secondAttribute="centerX" id="cN4-CL-T0w"/>
                             <constraint firstItem="XEq-8j-Jyw" firstAttribute="leading" secondItem="S7D-6A-xSb" secondAttribute="leading" constant="50" id="eG6-dv-57J"/>
                             <constraint firstItem="ph9-us-hTi" firstAttribute="top" secondItem="3EA-yd-6Rv" secondAttribute="bottom" constant="10" id="nPi-IF-VZQ"/>
                             <constraint firstItem="3EA-yd-6Rv" firstAttribute="leading" secondItem="S7D-6A-xSb" secondAttribute="leading" constant="50" id="peA-MY-1uT"/>
-                            <constraint firstItem="XEq-8j-Jyw" firstAttribute="top" secondItem="hCw-LO-2Wj" secondAttribute="bottom" constant="60" id="pjY-9V-Kp0"/>
+                            <constraint firstItem="XEq-8j-Jyw" firstAttribute="top" secondItem="hCw-LO-2Wj" secondAttribute="bottom" constant="100" id="pjY-9V-Kp0"/>
                             <constraint firstItem="ph9-us-hTi" firstAttribute="centerX" secondItem="sUD-UZ-QY0" secondAttribute="centerX" id="say-wk-V1y"/>
+                            <constraint firstItem="Amw-Sh-BaU" firstAttribute="leading" secondItem="S7D-6A-xSb" secondAttribute="leading" constant="50" id="xIu-jV-e3X"/>
                             <constraint firstItem="S7D-6A-xSb" firstAttribute="trailing" secondItem="ph9-us-hTi" secondAttribute="trailing" constant="50" id="xyj-Fg-94G"/>
-                            <constraint firstItem="ph9-us-hTi" firstAttribute="centerY" secondItem="sUD-UZ-QY0" secondAttribute="centerY" constant="-10" id="yn6-W1-K3S"/>
+                            <constraint firstItem="ph9-us-hTi" firstAttribute="centerY" secondItem="sUD-UZ-QY0" secondAttribute="centerY" constant="30" id="yn6-W1-K3S"/>
                             <constraint firstItem="ph9-us-hTi" firstAttribute="leading" secondItem="S7D-6A-xSb" secondAttribute="leading" constant="50" id="z2B-vV-H3e"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rT4-iW-bUh"/>
                     <connections>
+                        <outlet property="firstNameTextField" destination="kfY-1o-hKh" id="VpT-ae-3gN"/>
+                        <outlet property="lastNameTextField" destination="eYH-Y6-ksp" id="Xr9-23-I3p"/>
                         <outlet property="locationTextField" destination="XEq-8j-Jyw" id="0Gc-6f-Dow"/>
                         <outlet property="urlTextField" destination="3EA-yd-6Rv" id="N2b-Pl-Jfe"/>
                         <segue destination="ZUx-9v-S4r" kind="show" identifier="findLocationSegue" id="x8v-fL-n2I"/>
@@ -433,7 +461,11 @@
                                     <action selector="addLocation:" destination="oAG-bW-GLG" id="ZnN-9r-q66"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="icon_refresh" id="SeJ-Ek-bHu"/>
+                            <barButtonItem image="icon_refresh" id="SeJ-Ek-bHu">
+                                <connections>
+                                    <action selector="refresh:" destination="oAG-bW-GLG" id="c35-RR-enB"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
