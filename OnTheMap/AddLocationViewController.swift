@@ -20,6 +20,14 @@ class AddLocationViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let _ = location{
+            self.uploadLocation()
+        }
+        
+    }
+    
     @IBAction func cancel(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -31,11 +39,11 @@ class AddLocationViewController: UIViewController {
     }
     
     @IBAction func findLocation(_ sender: Any) {
-        guard let locationString = self.locationTextField.text else {
+        guard let _ = self.locationTextField.text else {
             showEmptyTextWarning(message: "Empty Location")
             return
         }
-        guard let urlString = self.urlTextField.text else {
+        guard let _ = self.urlTextField.text else {
             showEmptyTextWarning(message: "Empty URL")
             return
         }
@@ -46,6 +54,10 @@ class AddLocationViewController: UIViewController {
         let alertVC = UIAlertController(title: message, message: "You cannot leave the text field empty.", preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alertVC, animated: true, completion: nil)
+    }
+    
+    func uploadLocation(){
+        print("Uploaded")
     }
     /*
     // MARK: - Navigation

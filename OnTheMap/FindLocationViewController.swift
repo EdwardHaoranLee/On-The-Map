@@ -36,7 +36,16 @@ class FindLocationViewController: UIViewController{
             pin.coordinate = response.mapItems[0].placemark.coordinate
             pin.title = response.mapItems[0].name
             self.mapView.addAnnotation(pin)
+            self.mapView.setCenter(pin.coordinate, animated: true)
+            let region = MKCoordinateRegion(center: pin.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+            self.mapView.setRegion(region, animated: true)
         }
     }
+    
+    @IBAction func addLocation(_ sender: Any) {
+        self.addLocationVC.location = CGPoint(x: self.mapView.annotations[0].coordinate.latitude, y: self.mapView.annotations[0].coordinate.longitude)
+        navigationController?.popViewController(animated: true)
+    }
+    
     
 }
