@@ -8,4 +8,4 @@ The major functionalities of this app are the following:
 - User can post their basic information, such as real location, name, personal page, etc., to the server.
 - Multiple ViewControllers are used in this project. 
 
-Demo: https://youtu.be/bk_fifc8q6k
+[![Demo](https://img.youtube.com/vi/bk_fifc8q6k/0.jpg)](https://www.youtube.com/watch?v=bk_fifc8q6k)
